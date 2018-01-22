@@ -25,11 +25,13 @@
 # on very new kernels the mcelog events reported by the kernel also carry
 # the CPU type which is used too when available and not overriden.
 
+<% if @os['release']['major'] != '7' -%> 
 # Enable daemon mode:
 daemon = yes
 # By default mcelog just processes the currently pending events and exits.
 # in daemon mode it will keep running as a daemon in the background and poll
 # the kernel for events and then decode them.
+<% end -%>
 
 # Filter out known broken events by default
 filter = yes
